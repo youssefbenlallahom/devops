@@ -2,19 +2,20 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK17'   // nom exact configuré dans Jenkins > Tools (adapte la version)
+        jdk 'JDK17'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/youssefbenlallahom/devops.git'
+                checkout scm
             }
         }
 
-        stage('Give exec permission') {
+        stage('Prepare') {
             steps {
-                sh 'chmod +x mvnw'   // nécessaire si l'agent est sous Linux
+                sh 'chmod +x mvnw || true'
+                sh 'chmod +x backend/mvnw || true'
             }
         }
 
