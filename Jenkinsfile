@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JDK17'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -14,8 +10,8 @@ pipeline {
 
         stage('Prepare') {
             steps {
+                sh 'java -version'
                 sh 'chmod +x mvnw || true'
-                sh 'chmod +x backend/mvnw || true'
             }
         }
 
