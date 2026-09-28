@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Separate copy of the original full-stack project; it is not part of this CI repository.
+/DevOps-AppGestionDesProjets/
